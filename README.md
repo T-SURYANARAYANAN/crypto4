@@ -30,7 +30,51 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
+```c
+#include <stdio.h>
+#include <string.h>
+void vigenereEncrypt(char text[], const char key[]) {
+    int textLen = strlen(text);
+    int keyLen = strlen(key);
 
+    for (int i = 0; i < textLen; i++) {
+        char c = text[i];
+        if (c >= 'A' && c <= 'Z') {
+            text[i] = ((c - 'A' + key[i % keyLen] - 'A') % 26) + 'A';
+        }
+        else if (c >= 'a' && c <= 'z') {
+            text[i] = ((c - 'a' + key[i % keyLen] - 'A') % 26) + 'a';
+        }
+    }
+}
+void vigenereDecrypt(char text[], const char key[]) {
+    int textLen = strlen(text);
+    int keyLen = strlen(key);
+
+    for (int i = 0; i < textLen; i++) {
+        char c = text[i];
+        if (c >= 'A' && c <= 'Z') {
+            text[i] = ((c - 'A' - (key[i % keyLen] - 'A') + 26) % 26) + 'A';
+        }
+        else if (c >= 'a' && c <= 'z') {
+            text[i] = ((c - 'a' - (key[i % keyLen] - 'A') + 26) % 26) + 'a';
+        }
+    }
+}
+
+int main() {
+    const char *key = "KEY";  
+    char message[] = "This is a secret message.";
+    vigenereEncrypt(message, key);
+    printf("Encrypted Message: %s\n", message);
+    vigenereDecrypt(message, key);
+    printf("Decrypted Message: %s\n", message);
+    return 0;
+}
+
+```
 ## OUTPUT
+<img width="1303" height="673" alt="image" src="https://github.com/user-attachments/assets/c3f6d679-1992-4208-b6e3-7e36d00c98a9" />
 
 ## RESULT
+Thus the implementation of VIGENERE CIPHER had been executed successfully.
