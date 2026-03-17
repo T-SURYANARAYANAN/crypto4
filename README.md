@@ -70,7 +70,7 @@ int main()
 }
 ```
 ## OUTPUT
-<img width="1303" height="673" alt="image" src="https://github.com/user-attachments/assets/c3f6d679-1992-4208-b6e3-7e36d00c98a9" />
+<img width="432" height="255" alt="image" src="https://github.com/user-attachments/assets/31c8ed4c-2507-497f-87e3-b7fd9a7188ee" />
 
 ## RESULT
 Thus the implementation of VIGENERE CIPHER had been executed successfully.
